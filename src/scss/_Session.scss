@@ -7,16 +7,40 @@
     height: 100%;
     background-color: rgba(0,0,0,0.1);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    .microphone {
-      z-index: 1;
+    .microphonePanel {
+      position: absolute;
+      z-index: 11;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 400px;
+      .microphone {
+        width: 100px;
+      }
     }
 
-    .oval-active {
-      z-index: 0;
+    .oval-activePanel {
+      position: absolute;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 400px;
+      .oval-active {
+
+        &.bigger {
+          width: 160px;
+          transition: width 0.2s ease, height 0.2s ease;
+        }
+
+        &.smaller {
+          width: 120px;
+          transition: width 0.1s ease, height 0.1s ease;
+        }
+      }
     }
   }
 }

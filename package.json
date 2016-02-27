@@ -10,6 +10,7 @@
   "author": "MediVox Team",
   "license": "BSD-2-Clause",
   "dependencies": {
+    "classnames": "^2.2.3",
     "immutable": "^3.7.6",
     "ramda": "^0.19.1",
     "react": "^0.14.5",
