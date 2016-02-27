@@ -6,7 +6,7 @@ export default class PatientData extends React.Component {
   render() {
     return (
       <div className="PatientData">
-        
+
       </div>
     );
   }
