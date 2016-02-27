@@ -1,0 +1,19 @@
+.RecordedSession {
+  width: 100%;
+  float: left;
+  padding: 15px;
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    height: 100%;
+
+    .sessionName {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}

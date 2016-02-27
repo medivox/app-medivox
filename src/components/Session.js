@@ -7,7 +7,8 @@ export default class Session extends React.Component {
     return (
       <div className="Session">
         <div className="content">
-          Session
+          <img src="dist/img/microphone.png" className="microphone"/>
+          <img src="dist/img/oval-active.png" className="oval-active"/>
         </div>
       </div>
     );

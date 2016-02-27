@@ -15,4 +15,15 @@ function createAppBase(store) {
 }
 
 const store = configureStore();
-ReactDOM.render(createAppBase(store), document.getElementById('root'));
+
+function renderApp() {
+  ReactDOM.render(createAppBase(store), document.getElementById('root'));
+}
+
+
+window.onresize = function(event) {
+  console.log('Resizing');
+  renderApp();
+};
+
+renderApp();
