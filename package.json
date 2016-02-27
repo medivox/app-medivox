@@ -1,13 +1,13 @@
 {
-  "name": "react-redux-webpack-template",
+  "name": "medivox",
   "version": "0.0.1",
-  "description": "Starting template for simple SPA using react & redux",
+  "description": "Doctors office voice medical appliance",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack --progress --colors --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ernesto Freyre",
+  "author": "MediVox Team",
   "license": "BSD-2-Clause",
   "dependencies": {
     "immutable": "^3.7.6",

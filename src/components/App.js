@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as BaseActions from '../actions/base';
-import Button from './Button';
-
-import './App.scss';
+import Record from './Record';
+import Session from './Session';
 
 class App extends React.Component {
   static propTypes = {
@@ -24,16 +23,12 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <div className="page-header">
-          <h1>React-Redux-Webpack Template</h1>
+        <div className="col-md-6">
+          <Record />
         </div>
-        <p className="lead">A simple starting template to create simple Single Page Apps.</p>
-        <p>Have fun coding... <i className="fa fa-thumbs-o-up"/></p>
-        <Button
-          value={state.get('value')}
-          plusOne={this.plusOne}
-          minusOne={this.minusOne}
-        />
+        <div className="col-md-6">
+          <Session />
+        </div>
       </div>
     );
   }

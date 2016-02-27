@@ -1,4 +1,12 @@
 body {
-  background-color: #f8f8f8;
+  background: #026289; /* Old browsers */
+  background: -moz-linear-gradient(top,  #026289 0%, #033e62 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #026289 0%,#033e62 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #026289 0%,#033e62 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
+
+@import "App";
+@import "Record";
+@import "Session";
+@import "PatientData";
 
