@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Web Speech API Example</title>
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    var final_transcript = '';
+    var recognizing = false;
+    var ignore_onend;
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = "en-US";
+
+    recognition.onstart = function () {
+      recognizing = true;
+    };
+
+    recognition.onend = function () {
+      recognizing = false;
+      if (ignore_onend) {
+        return;
+      }
+      if (!final_transcript) {
+        return;
+      }
+    };
+
+    recognition.onresult = function (event) {
+      var interim_transcript = '';
+      for (var i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          final_transcript += event.results[i][0].transcript;
+        } else {
+          interim_transcript += event.results[i][0].transcript;
+        }
+      }
+      $("#final").html(format(final_transcript));
+      $("#draft").html(format(interim_transcript));
+    };
+
+    function format(s) {
+      return linebreak(capitalize(s));
+    }
+
+    function linebreak(s) {
+      return s.replace(/\n\n/g, '<p></p>').replace(/\n/g, '<br>');
+    }
+
+    function capitalize(s) {
+      return s.replace(/\S/, function (m) {
+        return m.toUpperCase();
+      });
+    }
+
+    $(document).ready(function () {
+      recognition.start();
+      ignore_onend = true;
+    });
+
+  </script>
+</head>
+
+<body>
+<span id="final"></span>  <span id="draft"></span>
+</body>
+
+</html>
