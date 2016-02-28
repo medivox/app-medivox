@@ -38,13 +38,25 @@ export default class Session extends React.Component {
     this.startVoiceCommands();
   }
 
+  restartMicrophone = (e) => {
+    console.log('Aborting voice, restarting it');
+    annyang.abort();
+    this.startVoiceCommands();
+    e.preventDefault();
+  };
+
   render() {
     return (
       <div className="Session">
         <div className="content">
 
-          <Microphone recording={this.state.recognizing} lastPhrase={this.state.lastPhrase}/>
-
+          <Microphone
+            recording={this.state.recognizing}
+            lastPhrase={this.state.lastPhrase}
+            restartMicrophone={this.restartMicrophone}/>
+          <div className="logo">
+            <img src="dist/img/medivox-logo.png" />
+          </div>
         </div>
       </div>
     );

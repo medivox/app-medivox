@@ -1,5 +1,6 @@
 import { BOOTSTRAP, SET_PHRASE,
-  GET_INTENT, ERROR, LOAD_PATIENT } from '../constants';
+  GET_INTENT, ERROR, LOAD_PATIENT,
+  SAVED_PATIENT, SAVING_PATIENT } from '../constants';
 import Immutable from 'immutable';
 import R from 'ramda';
 import process_intent from './process_intent';
@@ -23,6 +24,14 @@ export default function(state = initialState, action) {
 
     case GET_INTENT:
       return process_intent(state, action.data, previous_states);
+
+    case SAVING_PATIENT: {
+      return state.set('savingPatient', true);
+    }
+
+    case SAVED_PATIENT: {
+      return state.merge({savingPatient: false, patientToSave: null});
+    }
 
     case LOAD_PATIENT:
     {

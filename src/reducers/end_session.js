@@ -5,5 +5,12 @@ export default function end_session(state, data) {
     return state;
   }
 
-  return state.merge({'patientId': null, 'patient': null});
+  const patientToSave = state.get('patient');
+
+  return state.merge({
+    'patientId': null,
+    'patient': null,
+    'patientToSave': patientToSave,
+    'savingPatient': false
+  });
 }

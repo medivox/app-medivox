@@ -18,6 +18,16 @@ class App extends React.Component {
     if (prevProps.state.get('patientId') !== this.props.state.get('patientId')) {
       this.props.dispatch(BaseActions.getPatient(this.props.state.get('patientId')));
     }
+
+    if (this.props.state.get('patientToSave')) {
+      if (!this.props.state.get('savingPatient')) {
+        this.props.dispatch(BaseActions.savingPatient());
+        this.props.dispatch(BaseActions.savePatient(this.props.state.get('patientToSave')));
+
+      }
+    }
+    //patientToSave,
+    //'savingPatient': false'))
   }
 
   render() {

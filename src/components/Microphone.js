@@ -14,7 +14,8 @@ function capitalize(s) {
 export default class Microphone extends React.Component {
   static propTypes = {
     recording: React.PropTypes.bool.isRequired,
-    lastPhrase: React.PropTypes.string.isRequired
+    lastPhrase: React.PropTypes.string.isRequired,
+    restartMicrophone: React.PropTypes.func.isRequired
   };
 
   state = {
@@ -37,6 +38,10 @@ export default class Microphone extends React.Component {
     this.setState({small: !this.state.small});
   };
 
+  restartListening = () => {
+    this.props.restartMicrophone();
+  };
+
   render() {
     return (
       <div className="Microphone">
@@ -44,7 +49,7 @@ export default class Microphone extends React.Component {
           {this.props.lastPhrase}
         </div>
         <div className="microphonePanel">
-          <img src="dist/img/microphone.png" className="microphone"/>
+          <img src="dist/img/microphone.png" className="microphone" onClick={this.restartListening}/>
         </div>
         <div className="oval-activePanel">
           <img src="dist/img/oval-active.png" className={classNames("oval-active",{'bigger': !this.state.small}, {'smaller': this.state.small})}/>

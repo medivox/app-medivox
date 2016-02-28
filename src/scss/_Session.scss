@@ -2,6 +2,13 @@
   height: 100%;
   padding: 40px 0;
 
+  .logo {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 60px;
+  }
+
   .content {
     border-radius: 10px;
     height: 100%;

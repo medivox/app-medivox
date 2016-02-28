@@ -42,6 +42,37 @@ export function minusOne() {
   return { type: types.MINUS_ONE };
 }
 
+export function savingPatient() {
+  return { type: types.SAVING_PATIENT };
+}
+
+export function savedPatient() {
+  return { type: types.SAVED_PATIENT };
+}
+
+export function savePatient(patientToSave) {
+  return (dispatch, getState) => {
+    const patientData = patientToSave.toJS();
+    const patientId = patientData.patientId;
+
+    const settings = {
+      async: true,
+      crossDomain: true,
+      url: 'https://brilliant-heat-5253.firebaseio.com/' + ((patientId === 'anna-jones') ? 'doe' : 'john') + '.json',
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+        'cache-control': 'no-cache',
+        'postman-token': 'c570161c-ee0c-8c9b-f3ad-64f51c6180dc'
+      },
+      processData: false,
+      data: JSON.stringify(patientData)
+    };
+    jQuery.ajax(settings).done((response) => {
+      dispatch(savedPatient());
+    });
+  };
+}
 
 export function getPatient(patientId) {
   return (dispatch, getState) => {
@@ -63,5 +94,5 @@ export function getPatient(patientId) {
       });
 
     }
-  }
+  };
 }
