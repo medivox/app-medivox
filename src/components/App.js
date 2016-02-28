@@ -15,8 +15,8 @@ class App extends React.Component {
     super(props, context);
   }
 
-  plusOne = () => this.props.dispatch(BaseActions.plusOne());
-  minusOne = () => this.props.dispatch(BaseActions.minusOne());
+  //plusOne = () => this.props.dispatch(BaseActions.plusOne());
+  //minusOne = () => this.props.dispatch(BaseActions.minusOne());
 
   render() {
     const { state } = this.props;
@@ -24,10 +24,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="col-md-6">
-          <Record />
+          <Record dispatch={this.props.dispatch}/>
         </div>
         <div className="col-md-6">
-          <Session />
+          <Session dispatch={this.props.dispatch} />
         </div>
       </div>
     );

@@ -13,7 +13,8 @@ function capitalize(s) {
 
 export default class Microphone extends React.Component {
   static propTypes = {
-    recording: React.PropTypes.bool.isRequired
+    recording: React.PropTypes.bool.isRequired,
+    lastPhrase: React.PropTypes.string.isRequired
   };
 
   state = {
@@ -24,15 +25,10 @@ export default class Microphone extends React.Component {
     if (this.props.recording != nextProps.recording) {
       if (nextProps.recording) {
         this.intervalId = setInterval(this.changeState, 300);
-        this.intervalId2 = setInterval(this.changeState, 100);
       } else {
         if (this.intervalId) {
           clearInterval(this.intervalId);
         }
-        if (this.intervalId2) {
-          clearInterval(this.intervalId2);
-        }
-
       }
     }
   }
@@ -44,6 +40,9 @@ export default class Microphone extends React.Component {
   render() {
     return (
       <div className="Microphone">
+        <div className="phrasePanel">
+          {this.props.lastPhrase}
+        </div>
         <div className="microphonePanel">
           <img src="dist/img/microphone.png" className="microphone"/>
         </div>

@@ -6,7 +6,17 @@
     border-radius: 10px;
     height: 100%;
     background-color: rgba(0,0,0,0.1);
-
+    .phrasePanel {
+      position: absolute;
+      z-index: 20;
+      display: flex;
+      margin-top: 100px;
+      justify-content: center;
+      width: 100%;
+      height: 400px;
+      color: white;
+      font-size: 30px;
+    }
 
     .microphonePanel {
       position: absolute;
@@ -32,8 +42,8 @@
       .oval-active {
 
         &.bigger {
-          width: 160px;
-          transition: width 0.2s ease, height 0.2s ease;
+          width: 135px;
+          transition: width 0.1s ease, height 0.1s ease;
         }
 
         &.smaller {
