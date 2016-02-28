@@ -1,10 +1,11 @@
 .RecordedSession {
   width: 100%;
   float: left;
-  padding: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 
   .card {
-    background-color: rgba(255, 255, 255, 0.1);
     padding: 15px;
     border-radius: 10px;
     height: 100%;
@@ -15,5 +16,17 @@
       font-weight: bold;
       text-align: center;
     }
+  }
+
+  .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 20px;
+  }
+
+  .nav-pills>li>a {
+    border-radius: 4px;
+    font-size: 20px;
+    color: white;
   }
 }

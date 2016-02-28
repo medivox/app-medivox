@@ -13,6 +13,7 @@
     "axios": "^0.9.1",
     "classnames": "^2.2.3",
     "immutable": "^3.7.6",
+    "moment": "^2.11.2",
     "ramda": "^0.19.1",
     "react": "^0.14.5",
     "react-dom": "^0.14.5",

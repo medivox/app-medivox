@@ -7,16 +7,18 @@ import Session from './Session';
 class App extends React.Component {
   static propTypes = {
     state: React.PropTypes.object.isRequired,
-    dispatch: React.PropTypes.func.isRequired,
-    secondRender: React.PropTypes.bool
+    dispatch: React.PropTypes.func.isRequired
   };
 
   constructor(props, context) {
     super(props, context);
   }
 
-  //plusOne = () => this.props.dispatch(BaseActions.plusOne());
-  //minusOne = () => this.props.dispatch(BaseActions.minusOne());
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.state.get('patientId') !== this.props.state.get('patientId')) {
+      this.props.dispatch(BaseActions.getPatient(this.props.state.get('patientId')));
+    }
+  }
 
   render() {
     const { state } = this.props;
@@ -24,7 +26,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="col-md-6">
-          <Record dispatch={this.props.dispatch}/>
+          {(this.props.state.get('patient')) ?
+            <Record patient={this.props.state.get('patient')} dispatch={this.props.dispatch}/>
+            :
+            null
+          }
         </div>
         <div className="col-md-6">
           <Session dispatch={this.props.dispatch} />
